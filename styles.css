@@ -530,20 +530,25 @@ textarea:focus {
 }
 
 .footer-column h2 {
-  margin: 0 0 14px;
+  margin: 0 0 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(234, 217, 207, 0.9);
   color: var(--ink);
   font-size: 15px;
 }
 
 .footer-column ul {
   display: grid;
-  gap: 8px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px 18px;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .footer-column a {
+  display: inline-block;
+  padding: 2px 0;
   color: var(--muted);
 }
 
@@ -554,35 +559,34 @@ textarea:focus {
 .company-summary {
   max-width: 1180px;
   margin: 0 auto;
-  padding: 0 clamp(20px, 5vw, 32px) 26px;
+  padding: 4px clamp(20px, 5vw, 32px) 26px;
 }
 
 .company-summary dl {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1px;
-  overflow: hidden;
+  grid-template-columns: minmax(120px, 0.38fr) minmax(0, 1fr);
   margin: 0;
-  background: var(--line);
-  border: 1px solid var(--line);
-  border-radius: 20px;
+  border-top: 1px solid rgba(234, 217, 207, 0.9);
 }
 
 .company-summary div {
-  padding: 18px;
-  background: rgba(255, 255, 255, 0.72);
+  display: contents;
 }
 
 .company-summary dt {
-  color: var(--primary-dark);
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.06em;
+  padding: 14px 0;
+  color: var(--ink);
+  border-bottom: 1px solid rgba(234, 217, 207, 0.9);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
 .company-summary dd {
-  margin: 6px 0 0;
-  color: var(--ink);
+  margin: 0;
+  padding: 14px 0;
+  color: var(--muted);
+  border-bottom: 1px solid rgba(234, 217, 207, 0.9);
   overflow-wrap: anywhere;
 }
 
@@ -630,7 +634,7 @@ textarea:focus {
   }
 
   .company-summary dl {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(110px, 0.4fr) minmax(0, 1fr);
   }
 
   .result-card {
@@ -673,18 +677,23 @@ textarea:focus {
   }
 
   .footer-main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 26px;
     padding-top: 34px;
     padding-bottom: 30px;
   }
 
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+
   .footer-brand,
   .footer-column {
-    padding: 18px;
-    background: rgba(255, 255, 255, 0.72);
-    border: 1px solid var(--line);
-    border-radius: 22px;
-    box-shadow: 0 14px 34px rgba(103, 71, 51, 0.07);
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
   }
 
   .footer-brand {
@@ -692,37 +701,12 @@ textarea:focus {
   }
 
   .footer-column h2 {
-    display: flex;
-    align-items: center;
-    gap: 10px;
     margin-bottom: 12px;
     font-size: 16px;
   }
 
-  .footer-column h2::before {
-    content: "";
-    width: 8px;
-    height: 8px;
-    background: var(--primary);
-    border-radius: 999px;
-  }
-
   .footer-column ul {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-  }
-
-  .footer-column a {
-    display: block;
-    min-height: 42px;
-    padding: 10px 12px;
-    background: var(--accent-soft);
-    border: 1px solid rgba(234, 217, 207, 0.9);
-    border-radius: 14px;
-    color: var(--primary-dark);
-    font-size: 13px;
-    font-weight: 700;
-    line-height: 1.45;
+    gap: 7px 14px;
   }
 
   .company-summary {
@@ -730,56 +714,18 @@ textarea:focus {
   }
 
   .company-summary dl {
-    gap: 12px;
-    background: transparent;
-    border: 0;
-    border-radius: 0;
-  }
-
-  .company-summary div {
-    position: relative;
-    padding: 18px 18px 18px 52px;
-    background: rgba(255, 255, 255, 0.78);
-    border: 1px solid var(--line);
-    border-radius: 20px;
-    box-shadow: 0 14px 34px rgba(103, 71, 51, 0.07);
-  }
-
-  .company-summary div::before {
-    position: absolute;
-    top: 18px;
-    left: 18px;
-    display: grid;
-    width: 24px;
-    height: 24px;
-    place-items: center;
-    color: #fff;
-    background: var(--primary);
-    border-radius: 9px;
-    font-size: 13px;
-    font-weight: 800;
-  }
-
-  .company-summary div:nth-child(1)::before {
-    content: "社";
-  }
-
-  .company-summary div:nth-child(2)::before {
-    content: "所";
-  }
-
-  .company-summary div:nth-child(3)::before {
-    content: "業";
+    grid-template-columns: minmax(92px, 0.44fr) minmax(0, 1fr);
   }
 
   .company-summary dt {
-    font-size: 13px;
+    padding: 12px 0;
+    font-size: 12px;
   }
 
   .company-summary dd {
-    color: var(--ink);
-    font-size: 14px;
-    line-height: 1.65;
+    padding: 12px 0;
+    font-size: 13px;
+    line-height: 1.6;
   }
 
   .phone-frame,

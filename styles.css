@@ -487,6 +487,12 @@ textarea:focus {
   padding: 42px clamp(20px, 5vw, 32px);
 }
 
+.footer-main > *,
+.company-summary div,
+.footer-bottom > * {
+  min-width: 0;
+}
+
 .footer-brand {
   display: grid;
   gap: 16px;
@@ -560,6 +566,7 @@ textarea:focus {
 .company-summary dd {
   margin: 6px 0 0;
   color: var(--ink);
+  overflow-wrap: anywhere;
 }
 
 .footer-bottom {
@@ -601,6 +608,14 @@ textarea:focus {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .footer-main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .company-summary dl {
+    grid-template-columns: 1fr;
+  }
+
   .result-card {
     position: static;
   }
@@ -624,7 +639,18 @@ textarea:focus {
 
   .feature-grid,
   .form-grid,
-  .result-breakdown {
+  .result-breakdown,
+  .footer-main {
     grid-template-columns: 1fr;
+  }
+
+  .footer-main {
+    gap: 26px;
+    padding-top: 34px;
+    padding-bottom: 30px;
+  }
+
+  .footer-bottom {
+    display: grid;
   }
 }

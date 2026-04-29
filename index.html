@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Trim Blend Demo | トリマー向け調合計算デモ</title>
+    <meta
+      name="description"
+      content="トリマー向けにシャンプーや薬剤の調合計算をホームページ上で試せるデモサイトです。"
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="メインナビゲーション">
+        <a class="logo" href="#top" aria-label="Trim Blend Demo トップへ">
+          <span class="logo-mark">TB</span>
+          <span>Trim Blend Demo</span>
+        </a>
+        <div class="nav-links">
+          <a href="#features">できること</a>
+          <a href="#calculator">調合デモ</a>
+          <a href="#contact">相談する</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Limited Demo Site</p>
+          <h1>トリマーさんの調合作業を、ホームページ上でかんたんに。</h1>
+          <p class="lead">
+            シャンプーや薬剤の希釈・調合を計算できる仕組みを、アプリではなくWebページとして体験できるデモです。
+            現段階では計算式が未確定のため、入力項目と操作感を確認するための仮計算を配置しています。
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#calculator">デモを試す</a>
+            <a class="button secondary" href="#features">概要を見る</a>
+          </div>
+        </div>
+        <div class="hero-card" aria-label="調合計算プレビュー">
+          <div class="phone-frame">
+            <div class="preview-header">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="preview-content">
+              <p>本日のメニュー</p>
+              <strong>小型犬 / 薬用シャンプー</strong>
+              <div class="meter">
+                <span style="width: 68%"></span>
+              </div>
+              <dl>
+                <div>
+                  <dt>仕上がり量</dt>
+                  <dd>500ml</dd>
+                </div>
+                <div>
+                  <dt>原液</dt>
+                  <dd>100ml</dd>
+                </div>
+                <div>
+                  <dt>希釈水</dt>
+                  <dd>400ml</dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">For Grooming Salons</p>
+          <h2>デモで確認できること</h2>
+          <p>
+            実際の処方や安全基準は今後確定する前提で、店舗内で使うWebツールとしての見た目と流れを確認できます。
+          </p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <span class="icon">01</span>
+            <h3>スマホで開ける</h3>
+            <p>専用アプリを入れず、URLを知っているスタッフだけがブラウザで確認できる想定です。</p>
+          </article>
+          <article class="feature-card">
+            <span class="icon">02</span>
+            <h3>調合の入力欄</h3>
+            <p>メニュー、体重、仕上がり量、希釈倍率など、実運用に近い項目を仮配置しています。</p>
+          </article>
+          <article class="feature-card">
+            <span class="icon">03</span>
+            <h3>結果の見える化</h3>
+            <p>原液量・希釈水量・メモをカード表示し、作業前に確認しやすい形にしています。</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="calculator" class="section calculator-section">
+        <div class="section-heading">
+          <p class="eyebrow">Prototype Calculator</p>
+          <h2>シャンプー・薬剤 調合計算デモ</h2>
+          <p>
+            以下は仮の計算ロジックです。正式な計算式、薬剤ごとの注意事項、獣医師・メーカー指定の条件が決まり次第、
+            実際のルールに差し替えられます。
+          </p>
+        </div>
+
+        <div class="calculator-layout">
+          <form class="calculator-card" id="blendForm">
+            <div class="form-row">
+              <label for="menuType">施術メニュー</label>
+              <select id="menuType" name="menuType">
+                <option value="standard">通常シャンプー</option>
+                <option value="medicated">薬用シャンプー</option>
+                <option value="sensitive">敏感肌ケア</option>
+                <option value="coat">被毛ケア</option>
+              </select>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-row">
+                <label for="petWeight">体重</label>
+                <div class="input-with-unit">
+                  <input id="petWeight" name="petWeight" type="number" min="0.1" step="0.1" value="5.0">
+                  <span>kg</span>
+                </div>
+              </div>
+              <div class="form-row">
+                <label for="coatLength">毛量・毛の長さ</label>
+                <select id="coatLength" name="coatLength">
+                  <option value="short">少なめ・短毛</option>
+                  <option value="normal" selected>標準</option>
+                  <option value="long">多め・長毛</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-row">
+                <label for="targetAmount">仕上がり量</label>
+                <div class="input-with-unit">
+                  <input id="targetAmount" name="targetAmount" type="number" min="10" step="10" value="500">
+                  <span>ml</span>
+                </div>
+              </div>
+              <div class="form-row">
+                <label for="dilutionRate">希釈倍率</label>
+                <div class="input-with-unit">
+                  <input id="dilutionRate" name="dilutionRate" type="number" min="1" step="0.5" value="5">
+                  <span>倍</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <label for="notes">メモ・注意事項</label>
+              <textarea
+                id="notes"
+                name="notes"
+                rows="4"
+                placeholder="例：皮膚が敏感、顔まわりは薄めにする、メーカー指定量を確認する"
+              ></textarea>
+            </div>
+
+            <button class="button primary full" type="submit">仮計算する</button>
+          </form>
+
+          <aside class="result-card" aria-live="polite">
+            <p class="result-label">Demo Result</p>
+            <h3 id="resultTitle">通常シャンプーの目安</h3>
+            <div class="result-total">
+              <span>仕上がり量</span>
+              <strong id="resultTarget">500ml</strong>
+            </div>
+            <div class="result-breakdown">
+              <div>
+                <span>原液</span>
+                <strong id="resultBase">100ml</strong>
+              </div>
+              <div>
+                <span>希釈水</span>
+                <strong id="resultWater">400ml</strong>
+              </div>
+            </div>
+            <div class="result-note">
+              <strong>確認ポイント</strong>
+              <p id="resultNote">
+                これはデモ用の仮計算です。実際の施術では薬剤ラベル、メーカー推奨、店舗ルールを優先してください。
+              </p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="contact" class="section cta">
+        <p class="eyebrow">Next Step</p>
+        <h2>限定公開用のデモとして、そのまま共有できます。</h2>
+        <p>
+          計算式が決まったら、この入力画面に正式なロジックと注意文を反映できます。
+          まずは関係者にURLを共有し、必要な入力項目や画面の流れを確認する用途を想定しています。
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2026 Trim Blend Demo. Prototype for private preview.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

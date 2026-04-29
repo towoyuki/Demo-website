@@ -19,6 +19,13 @@ html {
   scroll-behavior: smooth;
 }
 
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-x: clip;
+}
+
 body {
   margin: 0;
   color: var(--ink);
@@ -94,6 +101,7 @@ a {
 
 .hero,
 .section {
+  width: 100%;
   max-width: 1180px;
   margin: 0 auto;
   padding-right: clamp(20px, 5vw, 32px);
@@ -208,6 +216,7 @@ h2 {
 .calculator-card,
 .result-card,
 .cta {
+  min-width: 0;
   background: rgba(255, 255, 255, 0.86);
   border: 1px solid var(--line);
   box-shadow: var(--shadow);
@@ -219,6 +228,7 @@ h2 {
 }
 
 .phone-frame {
+  width: 100%;
   overflow: hidden;
   max-width: 390px;
   margin: 0 auto;
@@ -313,6 +323,13 @@ h2 {
 .form-grid {
   display: grid;
   gap: 18px;
+}
+
+.hero > *,
+.feature-grid > *,
+.calculator-layout > *,
+.form-grid > * {
+  min-width: 0;
 }
 
 .feature-grid {
@@ -622,6 +639,16 @@ textarea:focus {
 }
 
 @media (max-width: 680px) {
+  .nav,
+  .hero,
+  .section,
+  .footer-main,
+  .company-summary,
+  .footer-bottom {
+    width: 100%;
+    max-width: 100%;
+  }
+
   .nav {
     align-items: flex-start;
     flex-direction: column;
@@ -629,6 +656,7 @@ textarea:focus {
 
   .nav-links {
     width: 100%;
+    max-width: 100%;
     overflow-x: auto;
     padding-bottom: 4px;
   }
@@ -648,6 +676,11 @@ textarea:focus {
     gap: 26px;
     padding-top: 34px;
     padding-bottom: 30px;
+  }
+
+  .phone-frame,
+  .preview-content {
+    max-width: 100%;
   }
 
   .footer-bottom {

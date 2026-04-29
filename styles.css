@@ -488,7 +488,7 @@ textarea:focus {
 }
 
 .footer {
-  margin-top: 28px;
+  margin-top: 0;
   color: var(--muted);
   background: #fff;
   border-top: 1px solid var(--line);
@@ -707,6 +707,10 @@ textarea:focus {
 
   .footer-column ul {
     gap: 7px;
+  }
+
+  .footer-main .footer-column:last-child {
+    grid-column: 1 / -1;
   }
 
   .company-summary {
